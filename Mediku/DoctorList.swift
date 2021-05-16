@@ -75,9 +75,18 @@ class DoctorList : UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        RecieveDoctorList = subDoctorList[indexPath.row]
-        print(type(of: subDoctorList[indexPath.row]))
-        performSegue(withIdentifier: "ListSelectSegue", sender: self) // subDoctorList[indexPath.row]
+        
+        if appDelegate?.loginCheck == 1 { // 로그인이 된 상태이면
+            RecieveDoctorList = subDoctorList[indexPath.row]
+            print(type(of: subDoctorList[indexPath.row]))
+            performSegue(withIdentifier: "ListSelectSegue", sender: self) // subDoctorList[indexPath.row]
+        } else {
+            let dialog = UIAlertController(title: "비회원", message: "로그인을 먼저 진행해주세요.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+            dialog.addAction(okAction)
+            present(dialog, animated: true, completion: nil)
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

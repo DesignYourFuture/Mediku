@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var buttonidx = 0 // 메인 페이지에서 몇번 버튼 눌렀는지 확인하기 위해
     // var subDoctorList = [DoctorData]() // 테이블 뷰를 위한 서브배열
     
-    var loginCheck : Int = 0 // 로그인 여부 확인 버튼
+    var loginCheck : Int = 0 // 로그인 여부 확인 버튼 - 로그인시 = 1 비로그인시 = 0
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

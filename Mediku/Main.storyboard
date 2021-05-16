@@ -11,13 +11,13 @@
         <!--Notice List-->
         <scene sceneID="1eQ-9q-e61">
             <objects>
-                <tableViewController storyboardIdentifier="NoticeVC" id="6nP-4Q-lHn" customClass="NoticeList" customModule="Medic" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="NoticeVC" id="6nP-4Q-lHn" customClass="NoticeList" customModule="Mediku" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KPo-pH-DXP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoticeCell" textLabel="DFI-BL-HeG" style="IBUITableViewCellStyleDefault" id="SqF-OJ-3ur" customClass="NoticeCell" customModule="Medic" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoticeCell" textLabel="DFI-BL-HeG" style="IBUITableViewCellStyleDefault" id="SqF-OJ-3ur" customClass="NoticeCell" customModule="Mediku" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SqF-OJ-3ur" id="Rd9-Re-NWj">
@@ -41,7 +41,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="qK4-fa-UDd">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="96t-VW-oi6">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="96t-VW-oi6">
                             <connections>
                                 <action selector="backButton:" destination="6nP-4Q-lHn" id="Ypq-Ix-WAh"/>
                             </connections>
@@ -58,7 +58,7 @@
         <!--마이페이지-->
         <scene sceneID="BQD-xu-dJt">
             <objects>
-                <viewController storyboardIdentifier="NoticePageVC" id="coM-7x-ppP" customClass="NoticePage" customModule="Medic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoticePageVC" id="coM-7x-ppP" customClass="NoticePage" customModule="Mediku" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aub-Ci-o94">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -84,7 +84,7 @@
         <!--마이페이지-->
         <scene sceneID="d2B-E7-AMx">
             <objects>
-                <viewController storyboardIdentifier="MypageVC" id="iuS-91-uDz" customClass="MyPage" customModule="Medic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MypageVC" id="iuS-91-uDz" customClass="MyPage" customModule="Mediku" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w0B-Mo-EQI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,6 +130,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t07-xN-9mE">
+                                <rect key="frame" x="184" y="147" width="191" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="예약정보"/>
+                                <connections>
+                                    <action selector="ReserveInfo:" destination="iuS-91-uDz" eventType="touchUpInside" id="hFz-jp-wZK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Fp-At-kMi">
+                                <rect key="frame" x="0.0" y="147" width="183" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="프로필정보"/>
+                                <connections>
+                                    <action selector="profilebtn:" destination="iuS-91-uDz" eventType="touchUpInside" id="SE4-Xc-xix"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Jjo-Lo-sRX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -138,16 +154,18 @@
                     <connections>
                         <outlet property="loginLabel" destination="Kzh-wq-hgP" id="kJb-tR-7Iy"/>
                         <outlet property="rtableView" destination="mLc-Eg-bfo" id="XSp-JM-bv6"/>
+                        <segue destination="FN6-Cv-sZr" kind="unwind" unwindAction="unwind2:" id="zuM-kd-xDo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hih-Bu-Pmv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="FN6-Cv-sZr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1720.8" y="-780.29556650246309"/>
         </scene>
         <!--로그인-->
         <scene sceneID="iIF-ob-p4E">
             <objects>
-                <viewController storyboardIdentifier="loginPageVC" id="LD3-qD-w9u" customClass="loginPage" customModule="Medic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginPageVC" id="LD3-qD-w9u" customClass="loginPage" customModule="Mediku" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fit-S9-uhR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -215,7 +233,9 @@
                     <connections>
                         <outlet property="emailText" destination="C8D-RS-zHQ" id="EFo-zl-b8Z"/>
                         <outlet property="loginBtn" destination="aEx-Su-s2d" id="qZm-uu-czS"/>
+                        <outlet property="loginLabel" destination="Wzf-cW-sQq" id="RVP-ZL-tDY"/>
                         <outlet property="pwText" destination="sx6-dc-vqi" id="bYc-FD-JFK"/>
+                        <outlet property="registerBtn" destination="IgT-5I-31R" id="Ytn-06-d1J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mmf-Sy-vr5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -225,7 +245,7 @@
         <!--Register Page-->
         <scene sceneID="cW1-O2-T03">
             <objects>
-                <viewController id="RpU-1j-MJg" customClass="RegisterPage" customModule="Medic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RpU-1j-MJg" customClass="RegisterPage" customModule="Mediku" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Ib-II-p8k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -319,7 +339,7 @@
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainPageVC" id="BYZ-38-t0r" customClass="MainPageView" customModule="Medic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainPageVC" id="BYZ-38-t0r" customClass="MainPageView" customModule="Mediku" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -530,13 +550,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="홈페이지" id="mO8-Cm-6og"/>
-                    <navigationItem key="navigationItem" title="Home" id="Mz9-2J-GOS">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="jl6-Qb-Cb9">
-                            <connections>
-                                <segue destination="08D-Y6-s52" kind="show" id="Arx-mG-970"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Home" id="Mz9-2J-GOS"/>
                     <connections>
                         <outlet property="imgView" destination="TYR-yM-jap" id="ipO-AG-I4z"/>
                         <outlet property="pageControl" destination="tFe-J8-oOb" id="uEN-AG-L6a"/>
@@ -547,10 +561,25 @@
             </objects>
             <point key="canvasLocation" x="796" y="0.0"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="CZS-wC-joa">
+            <objects>
+                <viewController id="bjd-Np-AWj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KRI-9j-xlh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="7dp-t7-SoE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y4e-f7-1Fq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1266" y="-1626"/>
+        </scene>
         <!--Report List-->
         <scene sceneID="hcf-oP-tS1">
             <objects>
-                <tableViewController storyboardIdentifier="reportListVC" id="4YH-b7-A4X" customClass="reportList" customModule="Medic" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="reportListVC" id="4YH-b7-A4X" customClass="reportList" customModule="Mediku" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZYs-qB-WnO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -581,32 +610,79 @@
             </objects>
             <point key="canvasLocation" x="836" y="849"/>
         </scene>
-        <!--View Controller-->
+        <!--Myprofile Page-->
         <scene sceneID="5lM-qI-VjU">
             <objects>
-                <viewController id="08D-Y6-s52" sceneMemberID="viewController">
+                <viewController id="08D-Y6-s52" customClass="MyprofilePage" customModule="Mediku" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qrn-QG-MfV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="아이디" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPF-Rg-woB">
+                                <rect key="frame" x="28" y="110" width="331" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="연락처" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qek-JR-3JJ">
+                                <rect key="frame" x="28" y="161" width="331" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="생년월일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONd-7D-69f">
+                                <rect key="frame" x="28" y="239" width="331" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q11-pG-ciW">
+                                <rect key="frame" x="28" y="190" width="331" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9VB-7f-CT7">
+                                <rect key="frame" x="0.0" y="277" width="375" height="43"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qm0-Yf-1J7">
+                                <rect key="frame" x="28" y="677" width="331" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="로그아웃"/>
+                                <connections>
+                                    <action selector="loginoutBtn:" destination="08D-Y6-s52" eventType="touchUpInside" id="XRl-jW-2Cm"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Ooe-3T-Ndm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="LXY-T9-zjZ"/>
+                    <connections>
+                        <outlet property="BirthLabel" destination="ONd-7D-69f" id="eqi-De-C5k"/>
+                        <outlet property="idLabel" destination="EPF-Rg-woB" id="ANe-xc-24O"/>
+                        <outlet property="phoneNumber" destination="qek-JR-3JJ" id="qER-iN-dfz"/>
+                        <outlet property="phone_field" destination="q11-pG-ciW" id="VM5-zJ-YUK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDG-f2-cNi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-169" y="849"/>
+            <point key="canvasLocation" x="-351.19999999999999" y="-1626.3546798029558"/>
         </scene>
         <!--Doctor List-->
         <scene sceneID="hou-RW-IUf">
             <objects>
-                <tableViewController storyboardIdentifier="DoctorListVC" id="2lb-7D-Cay" customClass="DoctorList" customModule="Medic" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DoctorListVC" id="2lb-7D-Cay" customClass="DoctorList" customModule="Mediku" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5od-Yq-KiT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="112" id="dxf-rc-pfJ" customClass="CellVO" customModule="Medic" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="112" id="dxf-rc-pfJ" customClass="CellVO" customModule="Mediku" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="112"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dxf-rc-pfJ" id="ONE-Kk-01A">
@@ -665,7 +741,7 @@
         <!--예약-->
         <scene sceneID="kc5-sQ-Bl5">
             <objects>
-                <viewController id="T1R-NO-hRL" customClass="ReservePage" customModule="Medic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="T1R-NO-hRL" customClass="ReservePage" customModule="Mediku" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JRo-LG-Sch">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -771,7 +847,7 @@
         <!--Verify Page-->
         <scene sceneID="CdO-NG-O1Y">
             <objects>
-                <viewController storyboardIdentifier="VerifyPageVC" id="djs-RH-KzX" customClass="VerifyPage" customModule="Medic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VerifyPageVC" id="djs-RH-KzX" customClass="VerifyPage" customModule="Mediku" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9hK-D5-GT6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -781,7 +857,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="확인"/>
                                 <connections>
-                                    <segue destination="iLb-Hv-rqI" kind="unwind" unwindAction="unwind:" id="bS8-Ux-C2b"/>
+                                    <segue destination="iLb-Hv-rqI" kind="unwind" unwindAction="unwind:" id="oPz-96-vnJ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="예약이 접수되었어요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvC-OQ-Kyd">
@@ -840,6 +916,83 @@
                 <exit id="iLb-Hv-rqI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3548" y="0.0"/>
+        </scene>
+        <!--Verify Page2-->
+        <scene sceneID="mIz-ao-tiD">
+            <objects>
+                <viewController storyboardIdentifier="VerifyPage2VC" id="mXN-Fh-uvK" customClass="VerifyPage2" customModule="Mediku" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="egV-58-eJZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="예약이 접수되었어요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tg1-ap-4jW">
+                                <rect key="frame" x="16" y="123" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="건국대학교 병원(흉부외과)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tv5-aT-scb">
+                                <rect key="frame" x="16" y="173" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="예약접수 일시 : 2021-05-15 23:54" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQO-nM-h2M">
+                                <rect key="frame" x="16" y="229" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="예약접수 번호 : 117375117" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XD2-lp-KhO">
+                                <rect key="frame" x="16" y="285" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="진료 링크 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dy1-Vw-EbW">
+                                <rect key="frame" x="16" y="337" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxc-an-aNI">
+                                <rect key="frame" x="16" y="391" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="고객센터"/>
+                                <connections>
+                                    <action selector="CSButton2:" destination="mXN-Fh-uvK" eventType="touchUpInside" id="HRJ-ad-atf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEF-Tt-NGc">
+                                <rect key="frame" x="16" y="709" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="확인"/>
+                                <connections>
+                                    <segue destination="PG5-9C-Yt2" kind="unwind" unwindAction="unwind2:" id="kwm-E0-WRn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qSV-pR-D7w"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jSb-CE-jwg"/>
+                    <connections>
+                        <outlet property="Check_Label2" destination="Tg1-ap-4jW" id="osv-lN-8J6"/>
+                        <outlet property="Reserve_Date" destination="GQO-nM-h2M" id="v1N-dl-6h1"/>
+                        <outlet property="Reservelink" destination="Dy1-Vw-EbW" id="4k2-iC-xDn"/>
+                        <outlet property="Reseve_number" destination="XD2-lp-KhO" id="iFj-lw-ggU"/>
+                        <outlet property="speciality2" destination="Tv5-aT-scb" id="RMf-ne-1SW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r9W-YB-7kL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="PG5-9C-Yt2" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4421.6000000000004" y="0.0"/>
         </scene>
         <!--홈페이지-->
         <scene sceneID="g6t-HF-Tm2">
@@ -937,7 +1090,7 @@
         <!--Clause Page-->
         <scene sceneID="Vpc-cj-wqp">
             <objects>
-                <viewController id="p0Y-8c-kNo" customClass="clausePage" customModule="Medic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="p0Y-8c-kNo" customClass="clausePage" customModule="Mediku" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jcf-iF-FIJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -987,13 +1140,13 @@
         <!--Env Setting Page-->
         <scene sceneID="9aZ-5s-pBb">
             <objects>
-                <tableViewController id="lrc-HT-Gcb" customClass="envSettingPage" customModule="Medic" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="lrc-HT-Gcb" customClass="envSettingPage" customModule="Mediku" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OTr-jS-eSZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="envCell" rowHeight="95" id="Y0Z-Ee-bEb" customClass="envCellVO" customModule="Medic" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="envCell" rowHeight="95" id="Y0Z-Ee-bEb" customClass="envCellVO" customModule="Mediku" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="95"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y0Z-Ee-bEb" id="bMp-Ls-5kb">
@@ -1083,7 +1236,7 @@
         <!--Event List-->
         <scene sceneID="Gw6-yG-Thl">
             <objects>
-                <tableViewController id="yXN-ir-PRs" customClass="eventList" customModule="Medic" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="yXN-ir-PRs" customClass="eventList" customModule="Mediku" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bq7-Gt-tkK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1094,7 +1247,7 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="80" id="oHa-rR-MYF" customClass="eventCell" customModule="Medic" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="80" id="oHa-rR-MYF" customClass="eventCell" customModule="Mediku" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oHa-rR-MYF" id="bn7-eJ-frF">
@@ -1118,7 +1271,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="NPR-Hl-kXh">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="FLU-ZD-dDY">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="FLU-ZD-dDY">
                             <connections>
                                 <action selector="backButton:" destination="yXN-ir-PRs" id="aPp-0h-RKS"/>
                             </connections>
@@ -1135,7 +1288,7 @@
         <!--Event Page-->
         <scene sceneID="v7q-G7-Yhn">
             <objects>
-                <viewController id="6CM-o5-Pi7" customClass="eventPage" customModule="Medic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6CM-o5-Pi7" customClass="eventPage" customModule="Mediku" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4gU-jl-ZsG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
