@@ -57,6 +57,37 @@ class MyPage : UIViewController {
     
    
     @IBAction func profilebtn(_ sender: Any) {
+        
+        if appDelegate?.loginCheck == 1 { // 로그인이 된 상태이면
+            guard let vc2 = self.storyboard?.instantiateViewController(withIdentifier: "MyprofilePageVC")  else {
+                print("error")
+                return
+            }
+            print("asd")
+            vc2.modalPresentationStyle = .fullScreen
+            self.present(vc2, animated: false, completion: nil)
+        } else {
+            // 로그인이 되어 있지 않다면
+            let dialog = UIAlertController(title: nil, message: "로그인을 먼저 진행해주세요.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "로그인", style: .default) { (_) in
+                
+                guard let vc2 = self.storyboard?.instantiateViewController(withIdentifier: "loginPageVC11")  else {
+                    print("error")
+                    return
+                }
+                print("asd")
+                vc2.modalPresentationStyle = .fullScreen
+                self.present(vc2, animated: false, completion: nil)
+                
+            }
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+            dialog.addAction(okAction)
+            dialog.addAction(cancelAction)
+            present(dialog, animated: true, completion: nil)
+            
+        }
+        
+        
     }
     
     
@@ -76,13 +107,34 @@ class MyPage : UIViewController {
     
     @IBAction func ReserveInfo(_ sender: Any) {
         
-        guard let vc2 = self.storyboard?.instantiateViewController(withIdentifier: "VerifyPage2VC") as? VerifyPage2 else {
-            print("error")
-            return
-        }
         
-        vc2.modalPresentationStyle = .fullScreen
-        self.present(vc2, animated: false, completion: nil)
+        if appDelegate?.loginCheck == 1 { // 로그인이 된 상태이면
+            guard let vc2 = self.storyboard?.instantiateViewController(withIdentifier: "VerifyPage2VC") as? VerifyPage2 else {
+                print("error")
+                return
+            }
+            
+            vc2.modalPresentationStyle = .fullScreen
+            self.present(vc2, animated: false, completion: nil)
+        } else {
+            // 로그인이 되어 있지 않다면
+            let dialog = UIAlertController(title: nil, message: "로그인을 먼저 진행해주세요.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "로그인", style: .default) { (_) in
+                
+                guard let vc2 = self.storyboard?.instantiateViewController(withIdentifier: "loginPageVC11")  else {
+                    print("error")
+                    return
+                }
+                print("asd")
+                vc2.modalPresentationStyle = .fullScreen
+                self.present(vc2, animated: false, completion: nil)
+                
+            }
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+            dialog.addAction(okAction)
+            dialog.addAction(cancelAction)
+            present(dialog, animated: true, completion: nil)
+        }
         
     }
     

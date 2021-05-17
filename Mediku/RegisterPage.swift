@@ -73,33 +73,10 @@ extension RegisterPage {
             print("\(error?.localizedDescription)")
             
             
+            
             if user != nil {
                 print ("register access")
-                // 여기에다가 업데이트 작성
-                var datalist = DataInfo()
-                
-                let email = String(self.IdField.text!)
-                let name = String(self.NameField.text!)
-                
-                var arr =  email.components(separatedBy: "@")
-                print(arr[0])
-                var head = arr[0]
-                arr = arr[1].components(separatedBy: ".")
-                print(arr[0])
-                head += arr[0]
-                
-                
-                
-                self.ref.child("user").child(head).setValue([
-                    "Id" : email,
-                    "Idformmat" : arr[1],
-                    "name" : name,
-                    "date" : "",
-                    "speciality" : "",
-                    "reserveNum" : "",
-                    "link" : ""
-                ])
-                
+                self.adduid()
                 self.AlertSuccess()
                 //self.dismiss(animated: true, completion: nil)
             } else {
@@ -107,7 +84,38 @@ extension RegisterPage {
                 self.AlertFail(error! as NSError)
             }
         }
+ 
     }
+    
+    func adduid() {
+        let user = Auth.auth().currentUser
+        
+        // 여기에다가 업데이트 작성
+        var datalist = DataInfo()
+        
+        let email = String(self.IdField.text!)
+        let name = String(self.NameField.text!)
+        /*
+        var arr =  email.components(separatedBy: "@")
+        print(arr[0])
+        var head = arr[0]
+        arr = arr[1].components(separatedBy: ".")
+        print(arr[0])
+        head += arr[0]
+        */
+        self.ref.child("user").child(user!.uid).setValue([
+            "Id" : email,
+            //"Idformmat" : arr[1],
+            "name" : name,
+            "date" : "",
+            "speciality" : "",
+            "reserveNum" : "",
+            "link" : ""
+        ])
+        
+        
+    }
+    
     
     func AlertSuccess() {
         let dialog = UIAlertController(title: nil, message: "회원가입에 성공하였습니다.", preferredStyle: .alert)

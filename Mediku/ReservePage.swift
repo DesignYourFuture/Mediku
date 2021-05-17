@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 var RecieveDoctorList = DoctorData()
 
@@ -15,6 +16,8 @@ class ReservePage : UIViewController {
     @IBOutlet weak var endTime: UILabel!
     @IBOutlet weak var pickerDate: UILabel!
     @IBOutlet weak var img: UIImageView!
+    
+    var ref: DatabaseReference!
     
     var paramName : String = "심제균"
     
@@ -92,6 +95,7 @@ extension ReservePage  {
         } else if min < 0{
             AlertInputError()
         } else {
+            // 올바른 조건이라면
             AlertSubmit()
         }
     }
@@ -123,12 +127,41 @@ extension ReservePage  {
         
         let okAction = UIAlertAction(title: "제출", style: .default) {
             (_) in
-            print("asd2")
             guard let vc2 = self.storyboard?.instantiateViewController(withIdentifier: "VerifyPageVC") as? VerifyPage else {
                 print("error")
                 return
             }
-            print("asd")
+            
+            //MARK::: 여기에다가 사용자 예약정보 파베로 넘기는 코드 작성 - 일단 여기 로직이 실행되는건 로그인이 되어있다는 가정.
+            self.ref = Database.database().reference() // 내 데이터베이스의 주소를 넣어준다.
+            
+            let user = Auth.auth().currentUser // 현재 유저 정보를 받아오고
+            
+            guard let key = self.ref.child("user").childByAutoId().key else {
+                print("key err")
+                return
+            }
+            print(key)
+           
+            let post = [
+                        "speciality": "ad",
+            ] as [String : Any]
+            
+            let childUpdates = ["user/\(user!.uid)/date": post["speciality"]]
+            self.ref.updateChildValues(childUpdates)
+            
+            
+            /*
+             guard let key = ref.child("posts").childByAutoId().key else { return }
+             let post = ["uid": userID,
+                         "author": username,
+                         "title": title,
+                         "body": body]
+             let childUpdates = ["/posts/\(key)": post,
+                                 "/user-posts/\(userID)/\(key)/": post]
+             ref.updateChildValues(childUpdates)
+             */
+            
             
             vc2.modalPresentationStyle = .fullScreen
             self.present(vc2, animated: false, completion: nil)

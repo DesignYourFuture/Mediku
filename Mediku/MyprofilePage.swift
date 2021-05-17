@@ -34,6 +34,9 @@ class MyprofilePage : UIViewController {
         }
     }
     
+    @IBAction func backbtn(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     
     

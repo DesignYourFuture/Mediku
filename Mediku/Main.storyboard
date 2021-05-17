@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Notice List-->
+        <!--공지-->
         <scene sceneID="1eQ-9q-e61">
             <objects>
                 <tableViewController storyboardIdentifier="NoticeVC" id="6nP-4Q-lHn" customClass="NoticeList" customModule="Mediku" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,8 +40,8 @@
                             <outlet property="delegate" destination="6nP-4Q-lHn" id="QLC-XS-Q94"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="qK4-fa-UDd">
-                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="96t-VW-oi6">
+                    <navigationItem key="navigationItem" title="공지" id="qK4-fa-UDd">
+                        <barButtonItem key="leftBarButtonItem" title="뒤로가기" id="96t-VW-oi6">
                             <connections>
                                 <action selector="backButton:" destination="6nP-4Q-lHn" id="Ypq-Ix-WAh"/>
                             </connections>
@@ -53,7 +53,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SrZ-w9-kX4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1522" y="-1626"/>
+            <point key="canvasLocation" x="2463.1999999999998" y="-1626.3546798029558"/>
         </scene>
         <!--마이페이지-->
         <scene sceneID="BQD-xu-dJt">
@@ -79,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Juf-nf-Xmh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2399" y="-1626"/>
+            <point key="canvasLocation" x="3340" y="-1626.3546798029558"/>
         </scene>
         <!--마이페이지-->
         <scene sceneID="d2B-E7-AMx">
@@ -143,7 +143,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="프로필정보"/>
                                 <connections>
-                                    <action selector="profilebtn:" destination="iuS-91-uDz" eventType="touchUpInside" id="SE4-Xc-xix"/>
+                                    <action selector="profilebtn:" destination="iuS-91-uDz" eventType="touchUpInside" id="PPk-F0-w4T"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -224,7 +224,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="로그인" id="2IP-kA-hrq">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="I85-yH-y6g">
+                        <barButtonItem key="leftBarButtonItem" title="뒤로가기" id="I85-yH-y6g">
                             <connections>
                                 <action selector="backButton:" destination="LD3-qD-w9u" id="GQ2-w1-udq"/>
                             </connections>
@@ -561,21 +561,6 @@
             </objects>
             <point key="canvasLocation" x="796" y="0.0"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="CZS-wC-joa">
-            <objects>
-                <viewController id="bjd-Np-AWj" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="KRI-9j-xlh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="7dp-t7-SoE"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="y4e-f7-1Fq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1266" y="-1626"/>
-        </scene>
         <!--Report List-->
         <scene sceneID="hcf-oP-tS1">
             <objects>
@@ -661,7 +646,13 @@
                         <viewLayoutGuide key="safeArea" id="Ooe-3T-Ndm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="LXY-T9-zjZ"/>
+                    <navigationItem key="navigationItem" id="LXY-T9-zjZ">
+                        <barButtonItem key="leftBarButtonItem" title="뒤로가기" id="SE4-af-vJO">
+                            <connections>
+                                <action selector="backbtn:" destination="08D-Y6-s52" id="UEx-fx-7nR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="BirthLabel" destination="ONd-7D-69f" id="eqi-De-C5k"/>
                         <outlet property="idLabel" destination="EPF-Rg-woB" id="ANe-xc-24O"/>
@@ -671,7 +662,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDG-f2-cNi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-351.19999999999999" y="-1626.3546798029558"/>
+            <point key="canvasLocation" x="591.20000000000005" y="-1626.3546798029558"/>
         </scene>
         <!--Doctor List-->
         <scene sceneID="hou-RW-IUf">
@@ -1085,7 +1076,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xfz-mp-8As" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="584.79999999999995" y="-1626.3546798029558"/>
+            <point key="canvasLocation" x="1527.2" y="-1626.3546798029558"/>
         </scene>
         <!--Clause Page-->
         <scene sceneID="Vpc-cj-wqp">
@@ -1108,7 +1099,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="ho8-CT-22i">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="IsV-bL-stP">
+                        <barButtonItem key="leftBarButtonItem" title="뒤로가기" id="IsV-bL-stP">
                             <connections>
                                 <action selector="backButton:" destination="p0Y-8c-kNo" id="uey-qy-M5M"/>
                             </connections>
@@ -1135,7 +1126,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xoc-TY-Xse" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4005.5999999999999" y="-1626.3546798029558"/>
+            <point key="canvasLocation" x="4948" y="-1626.3546798029558"/>
         </scene>
         <!--Env Setting Page-->
         <scene sceneID="9aZ-5s-pBb">
@@ -1195,7 +1186,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIR-We-Iz1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4856.8000000000002" y="-1626.3546798029558"/>
+            <point key="canvasLocation" x="5799.1999999999998" y="-1626.3546798029558"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="M8x-4F-LWG">
@@ -1233,7 +1224,7 @@
             </objects>
             <point key="canvasLocation" x="585" y="-2336"/>
         </scene>
-        <!--Event List-->
+        <!--공지사항-->
         <scene sceneID="Gw6-yG-Thl">
             <objects>
                 <tableViewController id="yXN-ir-PRs" customClass="eventList" customModule="Mediku" customModuleProvider="target" sceneMemberID="viewController">
@@ -1270,8 +1261,8 @@
                             <outlet property="delegate" destination="yXN-ir-PRs" id="2bN-Li-xij"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="NPR-Hl-kXh">
-                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="FLU-ZD-dDY">
+                    <navigationItem key="navigationItem" title="공지사항" id="NPR-Hl-kXh">
+                        <barButtonItem key="leftBarButtonItem" title="뒤로라기" id="FLU-ZD-dDY">
                             <connections>
                                 <action selector="backButton:" destination="yXN-ir-PRs" id="aPp-0h-RKS"/>
                             </connections>
@@ -1309,6 +1300,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U7h-DV-JH9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2397.5999999999999" y="-2336.4532019704434"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1Gh-Aq-yDd">
+            <objects>
+                <navigationController storyboardIdentifier="MyprofilePageVC" automaticallyAdjustsScrollViewInsets="NO" id="XMC-BB-GBj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="10M-x5-Pdc">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="08D-Y6-s52" kind="relationship" relationship="rootViewController" id="s7d-IQ-Xmj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jBm-Ke-wXd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-351.19999999999999" y="-1626.3546798029558"/>
         </scene>
     </scenes>
     <resources>
