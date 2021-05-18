@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class VerifyPage2 : UIViewController {
     
@@ -17,8 +18,22 @@ class VerifyPage2 : UIViewController {
     
     var Veri1 = VerifyPage()
     
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
+    //var ref: DatabaseReference!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.ref = Database.database().reference() // 내 데이터베이스의 주소를 넣어준다.
+        
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        //Check_Label2.text = appDelegate!.dict[""]
+        self.speciality2.text = self.appDelegate!.dict["speciality"] as! String
+        self.Reserve_Date.text = self.appDelegate!.dict["date"] as! String
+        self.Reseve_number.text = self.appDelegate!.dict["reserveNum"] as! String
+        self.Reservelink.text = self.appDelegate!.dict["link"] as! String
+        
 
     }
     

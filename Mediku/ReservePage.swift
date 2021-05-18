@@ -18,12 +18,16 @@ class ReservePage : UIViewController {
     @IBOutlet weak var img: UIImageView!
     
     var ref: DatabaseReference!
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
-    var paramName : String = "심제균"
+    var paramName : String = "" // 전달받은 이름
+    var paramMajor : String = "" // 전달받은 전공
+    
     
     let formatter = DateFormatter()
     let Hourformatter = DateFormatter()
     let Minformatter = DateFormatter()
+    
     
     var CheckHourStart : String = "1"
     var CheckMinStart : String = "1"
@@ -125,7 +129,7 @@ extension ReservePage  {
         contentVC.PickerDate = pickerDate.text ?? ""
         dialog.setValue(contentVC, forKey: "contentViewController") // 커스텀추가 코드 - 프라이빗API
         
-        let okAction = UIAlertAction(title: "제출", style: .default) {
+        let okAction = UIAlertAction(title: "제출", style: .default) { [self]
             (_) in
             guard let vc2 = self.storyboard?.instantiateViewController(withIdentifier: "VerifyPageVC") as? VerifyPage else {
                 print("error")
@@ -143,12 +147,59 @@ extension ReservePage  {
             }
             print(key)
            
+            var reserveNum = ""
+            var cnt = 0
+            
+            // 유일한 예약번호 만드는 알고리즘
+            for i in String(user!.uid) {
+                if i.isNumber {
+                    reserveNum = reserveNum + String(i)
+                } else if i.isLowercase {
+                    let randomNo: UInt32 = arc4random_uniform(10) // 1~9
+                    
+                    reserveNum += String(randomNo)
+                }
+                
+            }
+            
+            // 파이어베이스 데이터베이스에 업데이트 되어야 하는 정보.
             let post = [
-                        "speciality": "ad",
+                "speciality" : self.paramMajor, // 진료과
+                "DoctorName" : self.paramName, // 예약교수 이름
+                "date" : self.pickerDate.text!, // 날짜
+                "reserveNum" : "\(reserveNum)", // 예약번호
+                "StartTime" : "\(self.startTime.text ?? "error")", // 시작시간
+                "EndTime" : "\(self.endTime.text ?? "error")" // 끝시간
             ] as [String : Any]
             
-            let childUpdates = ["user/\(user!.uid)/date": post["speciality"]]
+            let childUpdates = [
+                "user/\(user!.uid)/date": post["date"],
+                "user/\(user!.uid)/DoctorName": post["DoctorName"],
+                "user/\(user!.uid)/speciality": post["speciality"],
+                "user/\(user!.uid)/reserveNum": post["reserveNum"],
+                "user/\(user!.uid)/StartTime": post["StartTime"],
+                "user/\(user!.uid)/EndTime": post["EndTime"]
+            ]
+            
             self.ref.updateChildValues(childUpdates)
+            
+            
+            // 딕셔너리를 여기 로직에서 업뎃하는데 그 이유는 동기화문제 때문에 시간차가 발생하여서 다른 페이지에서 정보를 읽어올 수 없기 때문에
+            self.ref.child("user/\(user!.uid)").getData { (error, snapshot) in
+                if let error = error {
+                    print("Error getting data \(error)")
+                }
+                else if snapshot.exists() {
+                    //print("Got data \(snapshot.value!)")
+                    //print(type(of: snapshot.value!))
+                    self.appDelegate!.dict = snapshot.value! as! [String : Any]
+                    print(self.appDelegate!.dict)
+                }
+                else {
+                    print("No data available")
+                }
+            }
+            
             
             
             /*

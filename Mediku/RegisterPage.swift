@@ -27,8 +27,10 @@ struct DataInfo {
 
 class RegisterPage : UIViewController {
     
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
     var ref: DatabaseReference!
 
+    
     //ref = Database.database().reference()
     
     @IBOutlet weak var pwchk: UILabel!

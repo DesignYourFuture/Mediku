@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var loginCheck : Int = 0 // 로그인 여부 확인 버튼 - 로그인시 = 1 비로그인시 = 0
     
+    var dict = [String:Any]() // 딕셔너리 선언 - 예약 페이지 보여주기 위해서
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

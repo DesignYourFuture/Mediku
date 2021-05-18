@@ -22,9 +22,12 @@ class DoctorList : UITableViewController {
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     var subDoctorList = [DoctorData]() // 테이블 뷰를 위한 서브배열
+    var major : String?
+    var sendname : String?
     
     override func viewDidLoad() {
         // 화면이 처음 로드될 때
+        
         
         
         if appDelegate?.callCheck == true {
@@ -62,7 +65,9 @@ class DoctorList : UITableViewController {
         
         cell.img.image = (UIImage(named: String(docimgName!)) ?? UIImage(named: "no_docimg.PNG"))!
         cell.name.numberOfLines = 1
-        cell.name.text =  self.subDoctorList[indexPath.row].name
+        cell.name.text = self.subDoctorList[indexPath.row].name
+        self.sendname = self.subDoctorList[indexPath.row].name // 전달하기 위한 이름
+        
         cell.detail.numberOfLines = 0 // 여러줄로 쓰기위해 LineBreak도 수정해주어야 함.
         cell.detail.text = self.subDoctorList[indexPath.row].Description
         cell.major.text = "[\(self.subDoctorList[indexPath.row].major!)]"
@@ -93,9 +98,14 @@ class DoctorList : UITableViewController {
         
         if segue.identifier == "ListSelectSegue" {
             
+            // 이 세그를 통해 전달할 정보를 여기에다가 작성한다.
+            let vc = segue.destination as! ReservePage
+            vc.paramMajor = self.major ?? ""
+            vc.paramName = self.sendname!
             
+            
+            //vc.paramName
         }
-        
         
     }
     
@@ -113,7 +123,7 @@ extension DoctorList {
         var sum = 0
         
         for i in 0...(count-1) {
-            let major : String? = appDelegate?.DoctorList[i].major ?? "none"
+            self.major = appDelegate?.DoctorList[i].major ?? "none"
             
             if major == "가정의학과" {
                 appDelegate?.majorCountList[0] += 1

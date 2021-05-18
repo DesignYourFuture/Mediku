@@ -901,6 +901,10 @@
                     <navigationItem key="navigationItem" id="cha-2O-35k"/>
                     <connections>
                         <outlet property="Check_Label" destination="xvC-OQ-Kyd" id="aHE-vg-JTq"/>
+                        <outlet property="Date_Label" destination="P5e-ef-2cw" id="7e3-8h-J78"/>
+                        <outlet property="Link_Label" destination="UcM-5d-QzH" id="Fmy-4r-h1F"/>
+                        <outlet property="ReserveNum_Label" destination="6eP-iw-bko" id="Tpp-Fh-1U0"/>
+                        <outlet property="Speciality_Label" destination="lVs-Zj-Dd0" id="2EK-7d-sur"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4aG-Ny-bcy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
