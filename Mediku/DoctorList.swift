@@ -23,6 +23,8 @@ class DoctorList : UITableViewController {
     
     var subDoctorList = [DoctorData]() // 테이블 뷰를 위한 서브배열
     var major : String?
+    
+    var sendmajor : String?
     var sendname : String?
     
     override func viewDidLoad() {
@@ -71,6 +73,7 @@ class DoctorList : UITableViewController {
         cell.detail.numberOfLines = 0 // 여러줄로 쓰기위해 LineBreak도 수정해주어야 함.
         cell.detail.text = self.subDoctorList[indexPath.row].Description
         cell.major.text = "[\(self.subDoctorList[indexPath.row].major!)]"
+        self.sendmajor = self.subDoctorList[indexPath.row].major // 전달하기 위한 전공
         
         return cell // 테이블 뷰의 인스턴스
     }
@@ -86,9 +89,27 @@ class DoctorList : UITableViewController {
             print(type(of: subDoctorList[indexPath.row]))
             performSegue(withIdentifier: "ListSelectSegue", sender: self) // subDoctorList[indexPath.row]
         } else {
+            /*
             let dialog = UIAlertController(title: "비회원", message: "로그인을 먼저 진행해주세요.", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
             dialog.addAction(okAction)
+            present(dialog, animated: true, completion: nil)
+            */
+            let dialog = UIAlertController(title: nil, message: "로그인을 먼저 진행해주세요.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "로그인", style: .default) { (_) in
+                
+                guard let vc2 = self.storyboard?.instantiateViewController(withIdentifier: "loginPageVC11")  else {
+                    print("error")
+                    return
+                }
+                print("asd")
+                vc2.modalPresentationStyle = .fullScreen
+                self.present(vc2, animated: false, completion: nil)
+                
+            }
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+            dialog.addAction(okAction)
+            dialog.addAction(cancelAction)
             present(dialog, animated: true, completion: nil)
         }
         
@@ -100,7 +121,7 @@ class DoctorList : UITableViewController {
             
             // 이 세그를 통해 전달할 정보를 여기에다가 작성한다.
             let vc = segue.destination as! ReservePage
-            vc.paramMajor = self.major ?? ""
+            vc.paramMajor = self.sendmajor!
             vc.paramName = self.sendname!
             
             

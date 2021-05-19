@@ -12,6 +12,7 @@ import SafariServices
 class MainPageView : UIViewController {
     
     @IBOutlet var imgView: UIImageView!
+    @IBOutlet weak var loctaionBtn: UIButton!
     
     @IBOutlet var pageControl: UIPageControl!
     
@@ -216,16 +217,19 @@ extension MainPageView {
         let OnceAction = UIAlertAction(title: "한 번 허용", style: .default) {
             (_) in
             self.locationAccessCheck = 1 // flag 1
+            self.loctaionBtn.setTitle("한 번 허용 상태", for: .normal)
         }
         
         let AlwaysAction = UIAlertAction(title: "앱을 사용하는 동안 허용", style: .default) {
             (_) in
             self.locationAccessCheck = -1 // flag -1
+            self.loctaionBtn.setTitle("앱을 사용하는 동안 허용 상태", for: .normal)
         }
         
         let DeniedAction = UIAlertAction(title: "허용 안함", style: .default) {
             (_) in
             self.locationAccessCheck = -2 // flag -2
+            self.loctaionBtn.setTitle("허용 안함", for: .normal)
             print("bbbbbb")
             print(self.locationAccessCheck)
         }

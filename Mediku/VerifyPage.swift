@@ -46,10 +46,10 @@ class VerifyPage : UIViewController{
             self.Date_Label.text = "진료 시간 : -- "
         }
         
-        self.Speciality_Label.text = self.appDelegate!.dict["speciality"] as? String
-        self.Date_Label.text = self.appDelegate!.dict["date"] as? String
-        self.ReserveNum_Label.text = self.appDelegate!.dict["reserveNum"] as? String
-        self.Link_Label.text = self.appDelegate!.dict["link"] as? String
+        //self.Speciality_Label.text = self.appDelegate!.dict["speciality"] as? String
+        //self.Date_Label.text = self.appDelegate!.dict["date"] as? String
+        //self.ReserveNum_Label.text = self.appDelegate!.dict["reserveNum"] as? String
+        //self.Link_Label.text = self.appDelegate!.dict["link"] as? String
             
     }
     

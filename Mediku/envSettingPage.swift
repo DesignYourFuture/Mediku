@@ -45,6 +45,6 @@ class envSettingPage : UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 95
+        return 79
     }
 }

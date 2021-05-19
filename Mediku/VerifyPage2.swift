@@ -29,9 +29,12 @@ class VerifyPage2 : UIViewController {
         
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         //Check_Label2.text = appDelegate!.dict[""]
-        self.speciality2.text = self.appDelegate!.dict["speciality"] as! String
+        
+        let speciality = "건국대학교(" + String(self.appDelegate!.dict["speciality"] as! String) + ")"
+        
+        self.speciality2.text = speciality
         self.Reserve_Date.text = self.appDelegate!.dict["date"] as! String
-        self.Reseve_number.text = self.appDelegate!.dict["reserveNum"] as! String
+        self.Reseve_number.text = "예약번호: " + String(self.appDelegate!.dict["reserveNum"] as! String)
         self.Reservelink.text = self.appDelegate!.dict["link"] as! String
         
 
