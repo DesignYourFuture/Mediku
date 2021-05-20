@@ -15,9 +15,9 @@ class MyprofilePage : UIViewController {
     @IBOutlet weak var phoneNumber: UILabel!
     @IBOutlet weak var phone_field: UITextField!
     @IBOutlet weak var BirthLabel: UILabel!
-    
+
     var ref: DatabaseReference!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +33,34 @@ class MyprofilePage : UIViewController {
             
         }
     }
+    
+    
+    @IBAction func CSPicker(_ sender: Any) {
+        
+        let dialog = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let contentVC = UIDatePicker()
+        dialog.setValue(contentVC, forKey: "contentViewController") // private api
+        
+        //dialog.addAction(OnceAction)
+        //dialog.addAction(AlwaysAction)
+        //dialog.addAction(DeniedAction)
+        
+        
+        present(dialog, animated: true, completion: nil)
+        
+    }
+    
+    
+    @IBAction func changeDatePicker(_ sender: Any) {
+        let datePickerView = sender // 센더라는 UIDatePicker 자료형의 인수가 전달된다.
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        self.BirthLabel.text = "생년월일 : " + formatter.string(from: (datePickerView as AnyObject).date)
+    }
+    
+    
     
     @IBAction func backbtn(_ sender: Any) {
         dismiss(animated: true, completion: nil)
