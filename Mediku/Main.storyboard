@@ -607,25 +607,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="연락처" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qek-JR-3JJ">
-                                <rect key="frame" x="28" y="161" width="331" height="21"/>
+                                <rect key="frame" x="28" y="208" width="331" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="생년월일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONd-7D-69f">
-                                <rect key="frame" x="28" y="239" width="331" height="21"/>
+                                <rect key="frame" x="28" y="275" width="331" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q11-pG-ciW">
-                                <rect key="frame" x="28" y="190" width="331" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qm0-Yf-1J7">
                                 <rect key="frame" x="28" y="677" width="331" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -634,20 +628,20 @@
                                     <action selector="loginoutBtn:" destination="08D-Y6-s52" eventType="touchUpInside" id="XRl-jW-2Cm"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="bEe-Lx-tkL">
-                                <rect key="frame" x="0.0" y="279" width="375" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <locale key="locale" localeIdentifier="ko"/>
-                                <connections>
-                                    <action selector="changeDatePicker:" destination="08D-Y6-s52" eventType="valueChanged" id="HUO-Zl-Qvu"/>
-                                </connections>
-                            </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUh-36-sEH">
-                                <rect key="frame" x="164" y="475" width="46" height="30"/>
+                                <rect key="frame" x="28" y="237" width="151" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="생년월일을 입력해주세요."/>
                                 <connections>
                                     <action selector="CSPicker:" destination="08D-Y6-s52" eventType="touchUpInside" id="9IK-up-vPE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nym-2Y-6F3">
+                                <rect key="frame" x="30" y="169" width="134" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="연락처를 입력해주세요"/>
+                                <connections>
+                                    <action selector="CSPhoneNum:" destination="08D-Y6-s52" eventType="touchUpInside" id="Hlo-ml-dtm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -665,7 +659,6 @@
                         <outlet property="BirthLabel" destination="ONd-7D-69f" id="eqi-De-C5k"/>
                         <outlet property="idLabel" destination="EPF-Rg-woB" id="ANe-xc-24O"/>
                         <outlet property="phoneNumber" destination="qek-JR-3JJ" id="qER-iN-dfz"/>
-                        <outlet property="phone_field" destination="q11-pG-ciW" id="VM5-zJ-YUK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDG-f2-cNi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

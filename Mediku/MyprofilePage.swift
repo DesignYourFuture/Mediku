@@ -35,19 +35,42 @@ class MyprofilePage : UIViewController {
     }
     
     
+    @IBAction func CSPhoneNum(_ sender: Any) {
+        let alert = UIAlertController(title: "연락처를 입력해주세요.", message: "textField", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default) {
+            (_) in
+            self.phoneNumber.text = "연락처 : " + (alert.textFields?[0].text)!
+        }
+        
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        alert.addTextField{ (myTextField) in
+            myTextField.textColor = UIColor.blue
+            myTextField.placeholder = "연락처를 입력해주세요."
+        }
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func CSPicker(_ sender: Any) {
         
-        let dialog = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        //let dialog = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let contentVC = UIDatePicker()
-        dialog.setValue(contentVC, forKey: "contentViewController") // private api
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.locale = NSLocale(localeIdentifier: "ko_KO") as Locale // datePicker의 default 값이 영어이기 때문에 한글로 바꿔줘야한다. 그래서 이 방식으로 변경할 수 있다.
         
-        //dialog.addAction(OnceAction)
-        //dialog.addAction(AlwaysAction)
-        //dialog.addAction(DeniedAction)
+        let dateChooserAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        dateChooserAlert.view.addSubview(datePicker)
+        dateChooserAlert.addAction(UIAlertAction(title: "선택완료", style: .cancel, handler: nil))
+        //dialog.setValue(contentVC, forKey: "contentViewController") // private api
         
+        let height : NSLayoutConstraint = NSLayoutConstraint(item: dateChooserAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.1, constant: 300)
+        dateChooserAlert.view.addConstraint(height)
         
-        present(dialog, animated: true, completion: nil)
+        present(dateChooserAlert, animated: true, completion: nil)
         
     }
     
