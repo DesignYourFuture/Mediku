@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class MyprofilePage : UIViewController {
+class MyprofilePage : UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var phoneNumber: UILabel!
@@ -20,6 +20,8 @@ class MyprofilePage : UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //phone_field.delegate = self
         
         self.ref = Database.database().reference() // 내 데이터베이스의 주소를 넣어준다.
         
@@ -36,6 +38,13 @@ class MyprofilePage : UIViewController {
     
     
     @IBAction func CSPhoneNum(_ sender: Any) {
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ProfileTextControllerVC") as! ProfileTextController
+        
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+        
+        /*
         let alert = UIAlertController(title: "연락처를 입력해주세요.", message: "textField", preferredStyle: .alert)
         let ok = UIAlertAction(title: "확인", style: .default) {
             (_) in
@@ -48,9 +57,16 @@ class MyprofilePage : UIViewController {
         alert.addTextField{ (myTextField) in
             myTextField.textColor = UIColor.blue
             myTextField.placeholder = "연락처를 입력해주세요."
+            
+            if myTextField.text?.count != 11 {
+                // 전화번호가 11자리가 아니면
+                ok.isEnabled = false
+            }
+            
         }
         
         self.present(alert, animated: true, completion: nil)
+         */
     }
     
     @IBAction func CSPicker(_ sender: Any) {
@@ -64,7 +80,8 @@ class MyprofilePage : UIViewController {
         
         let dateChooserAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         dateChooserAlert.view.addSubview(datePicker)
-        dateChooserAlert.addAction(UIAlertAction(title: "선택완료", style: .cancel, handler: nil))
+        dateChooserAlert.addAction(UIAlertAction(title: "선택완료", style: .default, handler: nil))
+        //dateChooserAlert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
         //dialog.setValue(contentVC, forKey: "contentViewController") // private api
         
         let height : NSLayoutConstraint = NSLayoutConstraint(item: dateChooserAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.1, constant: 300)
@@ -115,6 +132,17 @@ class MyprofilePage : UIViewController {
         dialog.addAction(okAction)
         present(dialog, animated: true, completion: nil)
         
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            guard let text = textField.text else {return false}
+            
+            // 최대 글자수 이상을 입력한 이후에는 중간에 다른 글자를 추가할 수 없게끔 작동
+            if text.count >= 11 && range.length == 0 && range.location < 11 {
+                return false
+            }
+            
+            return true
     }
     
 }
