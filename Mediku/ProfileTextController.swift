@@ -6,6 +6,11 @@
 //
 
 import UIKit
+import Firebase
+
+protocol SendDataDelegate {
+    func sendData(data: String)
+}
 
 class ProfileTextController: UIViewController, UITextFieldDelegate {
     
@@ -15,10 +20,15 @@ class ProfileTextController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var back: UIButton!
     @IBOutlet weak var submit: UIButton!
     
+    var ref: DatabaseReference!
+    var delegate : SendDataDelegate?
+    
     var maxLength = 11 // 최대 글자길이
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.isNavigationBarHidden = true // 네비게이션 바 숨기기
         
         view.backgroundColor = UIColor(cgColor: CGColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.75)) // 뷰를 투명하게
         
@@ -79,10 +89,31 @@ class ProfileTextController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func backBtn(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil) // 언와인드 안걸어도 얘는 된다.
     }
     
     @IBAction func submitBtn(_ sender: Any) {
-        
+        if let data = textField.text {
+            delegate?.sendData(data: data)
+            /*dismiss(animated: true, completion: nil) 이 코드가 작동되지 않는다
+             근데 backbtn에서는 된다.
+             */
+            
+            self.ref = Database.database().reference() // 내 데이터베이스의 주소를 넣어준다.
+            
+            let user = Auth.auth().currentUser
+            
+            let post = [
+                "PhoneNumber" : textField.text // 생년월일
+
+            ] as [String : Any]
+            
+            let childUpdates = [ // 없으면 새로 작성되고, 있으면 있는거 유지한 상태로 업데이트 된다.
+                "user/\(user!.uid)/PhoneNumber" : post["PhoneNumber"]
+            ]
+            
+            self.ref.updateChildValues(childUpdates)
+            
+        }
     }
 }

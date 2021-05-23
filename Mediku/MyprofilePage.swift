@@ -9,13 +9,32 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class MyprofilePage : UIViewController, UITextFieldDelegate {
+class MyprofilePage : UIViewController, UITextFieldDelegate, SendDataDelegate {
+    
+    
+    func sendData(data: String) {
+        phoneNumber.text = data
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "show" {
+            let viewController : ProfileTextController = segue.destination as! ProfileTextController // 우리가 데이터를 직접 보내는 과정이랑 유사하나, 해당 뷰 컨트롤러의 IBOulet에 직접 접근하지 않고, 저기서!!! 그냥 대리자 위임을 해준것 뿐이다.
+            viewController.delegate = self
+            // 즉, 내가(ReceiveController) 대리자가 되겠다는 것이다
+        }
+    }
     
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var phoneNumber: UILabel!
     @IBOutlet weak var phone_field: UITextField!
     @IBOutlet weak var BirthLabel: UILabel!
 
+    // VC2에서 받아오기 위한 데이터 - 직접적으로 레이블에 대입할 수 없기 때문에
+    var paramPhoneNumber : String?
+    var paramBirthLabel : String?
+    
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     var ref: DatabaseReference!
 
     override func viewDidLoad() {
@@ -37,41 +56,15 @@ class MyprofilePage : UIViewController, UITextFieldDelegate {
     }
     
     
-    @IBAction func CSPhoneNum(_ sender: Any) {
-        
-        let vc = storyboard?.instantiateViewController(withIdentifier: "ProfileTextControllerVC") as! ProfileTextController
-        
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true, completion: nil)
-        
-        /*
-        let alert = UIAlertController(title: "연락처를 입력해주세요.", message: "textField", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인", style: .default) {
-            (_) in
-            self.phoneNumber.text = "연락처 : " + (alert.textFields?[0].text)!
-        }
-        
-        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        alert.addAction(ok)
-        alert.addAction(cancel)
-        alert.addTextField{ (myTextField) in
-            myTextField.textColor = UIColor.blue
-            myTextField.placeholder = "연락처를 입력해주세요."
-            
-            if myTextField.text?.count != 11 {
-                // 전화번호가 11자리가 아니면
-                ok.isEnabled = false
-            }
-            
-        }
-        
-        self.present(alert, animated: true, completion: nil)
-         */
-    }
+
     
     @IBAction func CSPicker(_ sender: Any) {
         
         //let dialog = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        self.ref = Database.database().reference() // 내 데이터베이스의 주소를 넣어준다.
+        
+        let user = Auth.auth().currentUser
         
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
@@ -80,7 +73,31 @@ class MyprofilePage : UIViewController, UITextFieldDelegate {
         
         let dateChooserAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         dateChooserAlert.view.addSubview(datePicker)
-        dateChooserAlert.addAction(UIAlertAction(title: "선택완료", style: .default, handler: nil))
+        
+        let okAction = UIAlertAction(title: "선택완료", style: .default) { (_) in
+            let datePickerView = sender // 센더라는 UIDatePicker 자료형의 인수가 전달된다.
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let selectValue = formatter.string(from: datePicker.date)
+            print(formatter.string(from: datePicker.date))
+            self.BirthLabel.text = "생년월일 : " + selectValue
+            
+            
+            // 파이어베이스에 업데이트 된다.
+            let post = [
+                "Birth" : selectValue // 생년월일
+
+            ] as [String : Any]
+            
+            let childUpdates = [ // 없으면 새로 작성되고, 있으면 있는거 유지한 상태로 업데이트 된다.
+                "user/\(user!.uid)/Birth" : post["Birth"]
+            ]
+            
+            self.ref.updateChildValues(childUpdates)
+            
+        }
+        dateChooserAlert.addAction(okAction)
         //dateChooserAlert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
         //dialog.setValue(contentVC, forKey: "contentViewController") // private api
         
@@ -119,6 +136,8 @@ class MyprofilePage : UIViewController, UITextFieldDelegate {
             self.phoneNumber.text = "연락처"
             self.BirthLabel.text = "생년월일"
             
+            appDelegate?.loginCheck = 0
+            
         } catch let error as NSError {
             print("logout error code : %@", error)
         }
@@ -128,12 +147,16 @@ class MyprofilePage : UIViewController, UITextFieldDelegate {
     func loginoutAlert() {
         
         let dialog = UIAlertController(title: nil, message: "로그아웃되었습니다", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "확인", style: .default) {
+            (_) in
+            self.dismiss(animated: true, completion: nil)
+        }
         dialog.addAction(okAction)
+        
         present(dialog, animated: true, completion: nil)
         
     }
-    
+    /*
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
             guard let text = textField.text else {return false}
             
@@ -144,5 +167,17 @@ class MyprofilePage : UIViewController, UITextFieldDelegate {
             
             return true
     }
+    */
     
+    @IBAction func NumBtn(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ProfileTextControllerVC") as! ProfileTextController
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.delegate = self // 델리게이트 패턴 사용할 때 꼭 위임자 줘야해..
+        present(vc, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func myExit(sender: UIStoryboardSegue) {
+        // 언와인드 세그웨이
+    }
 }

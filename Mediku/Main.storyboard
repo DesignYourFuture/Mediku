@@ -641,7 +641,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="연락처를 입력해주세요"/>
                                 <connections>
-                                    <action selector="CSPhoneNum:" destination="08D-Y6-s52" eventType="touchUpInside" id="Hlo-ml-dtm"/>
+                                    <action selector="NumBtn:" destination="08D-Y6-s52" eventType="touchUpInside" id="fG3-XZ-N95"/>
+                                    <segue destination="p73-E2-00d" kind="show" id="X0p-ha-CPa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -659,7 +660,6 @@
                         <outlet property="BirthLabel" destination="ONd-7D-69f" id="eqi-De-C5k"/>
                         <outlet property="idLabel" destination="EPF-Rg-woB" id="ANe-xc-24O"/>
                         <outlet property="phoneNumber" destination="qek-JR-3JJ" id="qER-iN-dfz"/>
-                        <segue destination="p73-E2-00d" kind="custom" identifier="textSegue" id="uHG-w9-VDr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDG-f2-cNi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -705,6 +705,7 @@
                                 </state>
                                 <connections>
                                     <action selector="submitBtn:" destination="p73-E2-00d" eventType="touchUpInside" id="aBO-L9-vtl"/>
+                                    <segue destination="nZG-n5-4rD" kind="unwind" unwindAction="myExitWithSender:" id="21H-Xs-4Jj"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="'-' 을 빼고 숫자만 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXW-Ea-dbX">
@@ -718,6 +719,7 @@
                         <viewLayoutGuide key="safeArea" id="BHj-fh-EcV"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Ee8-E0-FhF"/>
                     <connections>
                         <outlet property="back" destination="UMe-xT-hot" id="mln-fZ-on6"/>
                         <outlet property="submit" destination="GFH-ZW-1TL" id="IMu-eB-qg5"/>
@@ -726,6 +728,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRZ-kY-Pww" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="nZG-n5-4rD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1520.8" y="-1626.3546798029558"/>
         </scene>
@@ -1151,17 +1154,17 @@
         <scene sceneID="Vpc-cj-wqp">
             <objects>
                 <viewController id="p0Y-8c-kNo" customClass="clausePage" customModule="Mediku" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jcf-iF-FIJ">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="jcf-iF-FIJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mjf-lD-zTC">
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMf-lc-Lsh">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lMf-lc-Lsh">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="734"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKZ-gM-UtQ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKZ-gM-UtQ">
                                                 <rect key="frame" x="166" y="306" width="42" height="65"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
