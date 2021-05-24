@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A32CA56B5B8703465B527715 /* Pods_Mediku.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938815063FD797C354614B30 /* Pods_Mediku.framework */; };
 		B109B3A22657B8800056AFC3 /* ProfileTextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B109B3A12657B8800056AFC3 /* ProfileTextController.swift */; };
-		B132177B26566E9C00D67DE5 /* launchImg.png in Resources */ = {isa = PBXBuildFile; fileRef = B132177A26566E9C00D67DE5 /* launchImg.png */; };
+		B132177B26566E9C00D67DE5 /* testlaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = B132177A26566E9C00D67DE5 /* testlaunch.png */; };
 		B1321787265672B500D67DE5 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = B1321786265672B500D67DE5 /* profile.png */; };
 		B132178A2656731200D67DE5 /* homepage.png in Resources */ = {isa = PBXBuildFile; fileRef = B13217892656731200D67DE5 /* homepage.png */; };
 		B18B941526501638003EF3BB /* VerifyPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B941426501638003EF3BB /* VerifyPage2.swift */; };
@@ -189,7 +189,11 @@
 		B19D3C74264D1D83000932EF /* eventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19D3C64264D1D83000932EF /* eventList.swift */; };
 		B19D3C78264D1E09000932EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19D3C77264D1E09000932EF /* Main.storyboard */; };
 		B19D3CA7264D2A4E000932EF /* RegisterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19D3CA6264D2A4E000932EF /* RegisterPage.swift */; };
+		B1C579BA265B51050006E6C3 /* newbanner01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B1C579B9265B51050006E6C3 /* newbanner01.jpg */; };
+		B1C579C0265B6C860006E6C3 /* newbanner03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B1C579BF265B6C860006E6C3 /* newbanner03.jpg */; };
+		B1C579CC265B6E220006E6C3 /* newbanner02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B1C579CB265B6E220006E6C3 /* newbanner02.jpg */; };
 		B1DE82AD265663BA00A22801 /* MedikuLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DE82AC265663BA00A22801 /* MedikuLogo.png */; };
+		B1FF7764265B7EA900E63282 /* launchImg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B1FF7763265B7EA900E63282 /* launchImg.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -197,7 +201,7 @@
 		4D8503329B866719A0C44F64 /* Pods-Mediku.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mediku.release.xcconfig"; path = "Target Support Files/Pods-Mediku/Pods-Mediku.release.xcconfig"; sourceTree = "<group>"; };
 		938815063FD797C354614B30 /* Pods_Mediku.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mediku.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B109B3A12657B8800056AFC3 /* ProfileTextController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextController.swift; sourceTree = "<group>"; };
-		B132177A26566E9C00D67DE5 /* launchImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchImg.png; sourceTree = "<group>"; };
+		B132177A26566E9C00D67DE5 /* testlaunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testlaunch.png; sourceTree = "<group>"; };
 		B1321786265672B500D67DE5 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		B13217892656731200D67DE5 /* homepage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homepage.png; sourceTree = "<group>"; };
 		B18B941426501638003EF3BB /* VerifyPage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPage2.swift; sourceTree = "<group>"; };
@@ -379,7 +383,11 @@
 		B19D3C64264D1D83000932EF /* eventList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = eventList.swift; sourceTree = "<group>"; };
 		B19D3C77264D1E09000932EF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B19D3CA6264D2A4E000932EF /* RegisterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPage.swift; sourceTree = "<group>"; };
+		B1C579B9265B51050006E6C3 /* newbanner01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = newbanner01.jpg; sourceTree = "<group>"; };
+		B1C579BF265B6C860006E6C3 /* newbanner03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = newbanner03.jpg; sourceTree = "<group>"; };
+		B1C579CB265B6E220006E6C3 /* newbanner02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = newbanner02.jpg; sourceTree = "<group>"; };
 		B1DE82AC265663BA00A22801 /* MedikuLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MedikuLogo.png; sourceTree = "<group>"; };
+		B1FF7763265B7EA900E63282 /* launchImg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launchImg.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -432,10 +440,7 @@
 		B19D3AD4264D19EB000932EF /* Mediku */ = {
 			isa = PBXGroup;
 			children = (
-				B1DE82AC265663BA00A22801 /* MedikuLogo.png */,
-				B1321786265672B500D67DE5 /* profile.png */,
-				B13217892656731200D67DE5 /* homepage.png */,
-				B132177A26566E9C00D67DE5 /* launchImg.png */,
+				B1C579B8265B50430006E6C3 /* logoImage */,
 				B19D3B57264D1D5B000932EF /* bannerImage */,
 				B19D3B09264D1D5B000932EF /* doctorImage */,
 				B19D3B64264D1D5D000932EF /* doctorImageA */,
@@ -639,6 +644,9 @@
 		B19D3B57264D1D5B000932EF /* bannerImage */ = {
 			isa = PBXGroup;
 			children = (
+				B1C579B9265B51050006E6C3 /* newbanner01.jpg */,
+				B1C579CB265B6E220006E6C3 /* newbanner02.jpg */,
+				B1C579BF265B6C860006E6C3 /* newbanner03.jpg */,
 				B19D3B58264D1D5B000932EF /* banner03.jpg */,
 				B19D3B59264D1D5B000932EF /* banner02.jpg */,
 				B19D3B5A264D1D5B000932EF /* banner01.jpg */,
@@ -667,6 +675,7 @@
 		B19D3B61264D1D5B000932EF /* testImage */ = {
 			isa = PBXGroup;
 			children = (
+				B132177A26566E9C00D67DE5 /* testlaunch.png */,
 				B19D3B62264D1D5B000932EF /* 흉부외과_신제균.png */,
 				B19D3B63264D1D5B000932EF /* test_최재경.PNG */,
 			);
@@ -851,6 +860,17 @@
 			path = mainImage;
 			sourceTree = "<group>";
 		};
+		B1C579B8265B50430006E6C3 /* logoImage */ = {
+			isa = PBXGroup;
+			children = (
+				B1DE82AC265663BA00A22801 /* MedikuLogo.png */,
+				B1321786265672B500D67DE5 /* profile.png */,
+				B13217892656731200D67DE5 /* homepage.png */,
+				B1FF7763265B7EA900E63282 /* launchImg.jpg */,
+			);
+			path = logoImage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -913,6 +933,7 @@
 				B19D3BF6264D1D5D000932EF /* 소화기내과_김전환.PNG in Resources */,
 				B19D3C0F264D1D5D000932EF /* 신경과(A)_김동욱.PNG in Resources */,
 				B19D3BBE264D1D5D000932EF /* 치과_김도섭.PNG in Resources */,
+				B1FF7764265B7EA900E63282 /* launchImg.jpg in Resources */,
 				B19D3C28264D1D5D000932EF /* 소화기내과(A)_김정환2.PNG in Resources */,
 				B19D3C4B264D1D5D000932EF /* 가정의학과.png in Resources */,
 				B19D3BE1264D1D5D000932EF /* 산부인과_이지영.PNG in Resources */,
@@ -933,6 +954,7 @@
 				B19D3C34264D1D5D000932EF /* 호흡기알레르기내과(A)_김영환.PNG in Resources */,
 				B19D3C2A264D1D5D000932EF /* 소화기내과(A)_권소영.PNG in Resources */,
 				B19D3C0E264D1D5D000932EF /* 신경과(A)_박정진.PNG in Resources */,
+				B1C579C0265B6C860006E6C3 /* newbanner03.jpg in Resources */,
 				B19D3BD8264D1D5D000932EF /* 소아청소년과_김교순.PNG in Resources */,
 				B19D3C3C264D1D5D000932EF /* 산부인과(A)_손인숙.PNG in Resources */,
 				B19D3C0D264D1D5D000932EF /* 신경과(A)_한설희.PNG in Resources */,
@@ -970,7 +992,7 @@
 				B19D3C29264D1D5D000932EF /* 소화기내과(A)_김정환.PNG in Resources */,
 				B19D3BD3264D1D5D000932EF /* 재활의학과_이종민.PNG in Resources */,
 				B19D3C3B264D1D5D000932EF /* 산부인과(A)_이선주.PNG in Resources */,
-				B132177B26566E9C00D67DE5 /* launchImg.png in Resources */,
+				B132177B26566E9C00D67DE5 /* testlaunch.png in Resources */,
 				B19D3BCE264D1D5D000932EF /* 성형외과_전동근.PNG in Resources */,
 				B19D3C48264D1D5D000932EF /* 재활의학과(A)_고성은.PNG in Resources */,
 				B19D3AE2264D19EC000932EF /* LaunchScreen.storyboard in Resources */,
@@ -982,6 +1004,7 @@
 				B19D3C51264D1D5D000932EF /* 호흡기-알레르기내과.png in Resources */,
 				B19D3ADF264D19EC000932EF /* Assets.xcassets in Resources */,
 				B19D3C03264D1D5D000932EF /* event01.jpeg in Resources */,
+				B1C579BA265B51050006E6C3 /* newbanner01.jpg in Resources */,
 				B19D3BC5264D1D5D000932EF /* 신경과_한설희.PNG in Resources */,
 				B19D3BE8264D1D5D000932EF /* 호흡기알레르기내과_유광하.PNG in Resources */,
 				B1DE82AD265663BA00A22801 /* MedikuLogo.png in Resources */,
@@ -1037,6 +1060,7 @@
 				B19D3BE4264D1D5D000932EF /* 산부인과_소경아.PNG in Resources */,
 				B19D3C3D264D1D5D000932EF /* 산부인과(A)_이지영.PNG in Resources */,
 				B19D3BED264D1D5D000932EF /* 소화기내과_박형석.PNG in Resources */,
+				B1C579CC265B6E220006E6C3 /* newbanner02.jpg in Resources */,
 				B19D3C49264D1D5D000932EF /* 재활의학과.png in Resources */,
 				B19D3C1B264D1D5D000932EF /* 정신건강의학과(A)_하진현.PNG in Resources */,
 				B19D3C4E264D1D5D000932EF /* 신경과.png in Resources */,

@@ -16,9 +16,9 @@ class MainPageView : UIViewController {
     
     @IBOutlet var pageControl: UIPageControl!
     
-    var images = ["banner01.jpg","banner02.jpg","banner03.jpg"]
+    var images = ["newbanner01.jpg","newbanner02.jpg","newbanner03.jpg"]
     var imgNum = 1
-    let urlList = ["https://www.naver.com","https://www.konkuk.ac.kr","https://www.google.com"]
+    let urlList = ["https://rldd.tistory.com/","https://github.com/DesignYourFuture","https://namu.wiki/w/%EB%B3%84%20%ED%97%A4%EB%8A%94%20%EB%B0%A4"]
     
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
@@ -31,7 +31,6 @@ class MainPageView : UIViewController {
         super.viewDidLoad()
         
         JsonTest.readJson()
-        
         
         
         // 배너를 위한 코드
@@ -82,7 +81,7 @@ class MainPageView : UIViewController {
                         imgNum -= 1
                         pageControl.currentPage = imgNum - 1
                     }
-                    imgView.image = UIImage(named: "banner0" + String(imgNum) + ".jpg")
+                    imgView.image = UIImage(named: "newbanner0" + String(imgNum) + ".jpg")
                     
                 
                 case UISwipeGestureRecognizer.Direction.left:
@@ -91,7 +90,7 @@ class MainPageView : UIViewController {
                         pageControl.currentPage = imgNum - 1
                     }
                 
-                    imgView.image = UIImage(named: "banner0" + String(imgNum) + ".jpg")
+                    imgView.image = UIImage(named: "newbanner0" + String(imgNum) + ".jpg")
                     
                 
                 default:
