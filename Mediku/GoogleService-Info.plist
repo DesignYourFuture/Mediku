@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1073638563525-q4657frbqa7c4frhhgboqitl04kdubha.apps.googleusercontent.com</string>
+	<string>310117374810-5geev30o8lra1p5guggevg5h1fld5s22.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1073638563525-q4657frbqa7c4frhhgboqitl04kdubha</string>
+	<string>com.googleusercontent.apps.310117374810-5geev30o8lra1p5guggevg5h1fld5s22</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAHaaakiSLceEyWS-_GqKRCPWTpmH32YoM</string>
+	<string>AIzaSyC2ffAJBraUeh5gL_DfntYxq2yUyUccVso</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1073638563525</string>
+	<string>310117374810</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>lgw9898.Mediku</string>
 	<key>PROJECT_ID</key>
-	<string>mediku-2322e</string>
+	<string>remediku-5c003</string>
 	<key>STORAGE_BUCKET</key>
-	<string>mediku-2322e.appspot.com</string>
+	<string>remediku-5c003.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1073638563525:ios:fa176bee92c2481693daac</string>
+	<string>1:310117374810:ios:012132a8e61b1db0187163</string>
 </dict>
 </plist>

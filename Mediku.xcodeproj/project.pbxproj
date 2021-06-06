@@ -19,7 +19,6 @@
 		B19D3ADA264D19EB000932EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19D3AD9264D19EB000932EF /* ViewController.swift */; };
 		B19D3ADF264D19EC000932EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B19D3ADE264D19EC000932EF /* Assets.xcassets */; };
 		B19D3AE2264D19EC000932EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19D3AE0264D19EC000932EF /* LaunchScreen.storyboard */; };
-		B19D3B05264D1B08000932EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B19D3B04264D1B08000932EF /* GoogleService-Info.plist */; };
 		B19D3BBD264D1D5D000932EF /* 치과_김준연.PNG in Resources */ = {isa = PBXBuildFile; fileRef = B19D3B0B264D1D5B000932EF /* 치과_김준연.PNG */; };
 		B19D3BBE264D1D5D000932EF /* 치과_김도섭.PNG in Resources */ = {isa = PBXBuildFile; fileRef = B19D3B0C264D1D5B000932EF /* 치과_김도섭.PNG */; };
 		B19D3BBF264D1D5D000932EF /* 치과_김재승.PNG in Resources */ = {isa = PBXBuildFile; fileRef = B19D3B0D264D1D5B000932EF /* 치과_김재승.PNG */; };
@@ -193,6 +192,7 @@
 		B1C579C0265B6C860006E6C3 /* newbanner03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B1C579BF265B6C860006E6C3 /* newbanner03.jpg */; };
 		B1C579CC265B6E220006E6C3 /* newbanner02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B1C579CB265B6E220006E6C3 /* newbanner02.jpg */; };
 		B1DE82AD265663BA00A22801 /* MedikuLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DE82AC265663BA00A22801 /* MedikuLogo.png */; };
+		B1EDBB24266D159C0050A58A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1EDBB23266D159C0050A58A /* GoogleService-Info.plist */; };
 		B1FF7764265B7EA900E63282 /* launchImg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B1FF7763265B7EA900E63282 /* launchImg.jpg */; };
 /* End PBXBuildFile section */
 
@@ -213,7 +213,6 @@
 		B19D3ADE264D19EC000932EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B19D3AE1264D19EC000932EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B19D3AE3264D19EC000932EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B19D3B04264D1B08000932EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B19D3B0B264D1D5B000932EF /* 치과_김준연.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "치과_김준연.PNG"; sourceTree = "<group>"; };
 		B19D3B0C264D1D5B000932EF /* 치과_김도섭.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "치과_김도섭.PNG"; sourceTree = "<group>"; };
 		B19D3B0D264D1D5B000932EF /* 치과_김재승.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "치과_김재승.PNG"; sourceTree = "<group>"; };
@@ -387,6 +386,7 @@
 		B1C579BF265B6C860006E6C3 /* newbanner03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = newbanner03.jpg; sourceTree = "<group>"; };
 		B1C579CB265B6E220006E6C3 /* newbanner02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = newbanner02.jpg; sourceTree = "<group>"; };
 		B1DE82AC265663BA00A22801 /* MedikuLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MedikuLogo.png; sourceTree = "<group>"; };
+		B1EDBB23266D159C0050A58A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B1FF7763265B7EA900E63282 /* launchImg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launchImg.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -448,7 +448,6 @@
 				B19D3BB1264D1D5D000932EF /* mainImage */,
 				B19D3B5E264D1D5B000932EF /* noticeImage */,
 				B19D3B61264D1D5B000932EF /* testImage */,
-				B19D3B04264D1B08000932EF /* GoogleService-Info.plist */,
 				B19D3AD5264D19EB000932EF /* AppDelegate.swift */,
 				B19D3AD7264D19EB000932EF /* SceneDelegate.swift */,
 				B19D3AD9264D19EB000932EF /* ViewController.swift */,
@@ -474,6 +473,7 @@
 				B19D3C5A264D1D82000932EF /* VerifyPage.swift */,
 				B19D3CA6264D2A4E000932EF /* RegisterPage.swift */,
 				B18B941426501638003EF3BB /* VerifyPage2.swift */,
+				B1EDBB23266D159C0050A58A /* GoogleService-Info.plist */,
 				B1973E2C26514F7B003F0AED /* MyprofilePage.swift */,
 				B109B3A12657B8800056AFC3 /* ProfileTextController.swift */,
 			);
@@ -942,6 +942,7 @@
 				B19D3C39264D1D5D000932EF /* 호흡기알레르기내과(A)_김인애.PNG in Resources */,
 				B19D3C4A264D1D5D000932EF /* 치과.png in Resources */,
 				B19D3BD5264D1D5D000932EF /* 재활의학과_엄경은.PNG in Resources */,
+				B1EDBB24266D159C0050A58A /* GoogleService-Info.plist in Resources */,
 				B19D3C06264D1D5D000932EF /* 흉부외과_신제균.png in Resources */,
 				B19D3BBD264D1D5D000932EF /* 치과_김준연.PNG in Resources */,
 				B19D3BD4264D1D5D000932EF /* 재활의학과_고성은.PNG in Resources */,
@@ -1086,7 +1087,6 @@
 				B19D3C21264D1D5D000932EF /* 소아청소년과(A)_박용민.PNG in Resources */,
 				B19D3C08264D1D5D000932EF /* 신경과(A)_김한영.PNG in Resources */,
 				B19D3BFC264D1D5D000932EF /* 피부과_이양원.PNG in Resources */,
-				B19D3B05264D1B08000932EF /* GoogleService-Info.plist in Resources */,
 				B19D3C2F264D1D5D000932EF /* 치과(A)_김재승.PNG in Resources */,
 				B132178A2656731200D67DE5 /* homepage.png in Resources */,
 				B19D3BC4264D1D5D000932EF /* 신경과_김희진.PNG in Resources */,
