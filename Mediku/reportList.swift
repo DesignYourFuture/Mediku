@@ -70,6 +70,9 @@ class reportList : UITableViewController {
                 // 데이터를 먼저 읽는다
                 if DataSnapshot.exists() == true {
                     // uid 가 존재 즉, 초대한 회원코드를 정확히 입력 or 존재
+                    
+                    
+                    
                     let subDialog = UIAlertController(title: nil, message: "가족등록이 완료되었습니다.", preferredStyle: .alert)
                     let subOkAction = UIAlertAction(title: "ok", style: .default, handler: nil)
                     subDialog.addAction(subOkAction)
