@@ -63,17 +63,40 @@ class reportList : UITableViewController {
         let dialog = UIAlertController(title: nil, message: "가족을 등록하시겠습니까?", preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "확인", style: .default) { (_) in
-            guard self.ref.child("user\(ShareCode)") != nil else {
-                return
+            ShareCode = dialog.textFields?[0].text ?? ""
+            self.ref = Database.database().reference()
+            
+            self.ref.child("user/\(ShareCode)").getData { (_: Error?, DataSnapshot) in
+                // 데이터를 먼저 읽는다
+                if DataSnapshot.exists() == true {
+                    // uid 가 존재 즉, 초대한 회원코드를 정확히 입력 or 존재
+                    let subDialog = UIAlertController(title: nil, message: "가족등록이 완료되었습니다.", preferredStyle: .alert)
+                    let subOkAction = UIAlertAction(title: "ok", style: .default, handler: nil)
+                    subDialog.addAction(subOkAction)
+                    self.present(subDialog, animated: true, completion: nil)
+                } else {
+                    // 초대 코드가 잘못되었거나 존재하지 않는 경우
+                    let subDialog = UIAlertController(title: nil, message: "잘못된 코드입니다.", preferredStyle: .alert)
+                    let subOkAction = UIAlertAction(title: "ok", style: .default, handler: nil)
+                    subDialog.addAction(subOkAction)
+                    self.present(subDialog, animated: true, completion: nil)
+                }
+                
+                
             }
             
+            print(ShareCode)
+            let subDialog = UIAlertController(title: nil, message: "ㅔ", preferredStyle: .alert)
+            let ll = UIAlertAction(title: "ok", style: .default, handler: nil)
+            subDialog.addAction(ll)
+            self.present(subDialog, animated: true, completion: nil)
         }
         
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
         dialog.addTextField { (tf) in
             tf.placeholder = "초대받은 코드를 입력해주세요."
-            ShareCode = dialog.textFields?[0].text ?? ""
+            //ShareCode = dialog.textFields?[0].text ?? ""
         }
         dialog.addAction(okAction)
         dialog.addAction(cancelAction)
