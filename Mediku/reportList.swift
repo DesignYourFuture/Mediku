@@ -13,7 +13,11 @@ class reportList : UITableViewController {
     var ref: DatabaseReference! // 파이어베이스 리얼타임 데베 읽기 위해서 참조해야해
     
     override func viewDidLoad() {
-        //
+        print("ViewDid")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("ViewWill")
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,33 +70,44 @@ class reportList : UITableViewController {
             ShareCode = dialog.textFields?[0].text ?? ""
             self.ref = Database.database().reference()
             
+            let user = Auth.auth().currentUser
+            
             self.ref.child("user/\(ShareCode)").getData { (_: Error?, DataSnapshot) in
                 // 데이터를 먼저 읽는다
                 if DataSnapshot.exists() == true {
                     // uid 가 존재 즉, 초대한 회원코드를 정확히 입력 or 존재
+                
+                    self.ref.child("user/\(ShareCode)").child(user!.uid).setValue(["family": ShareCode])
                     
                     
-                    
-                    let subDialog = UIAlertController(title: nil, message: "가족등록이 완료되었습니다.", preferredStyle: .alert)
-                    let subOkAction = UIAlertAction(title: "ok", style: .default, handler: nil)
-                    subDialog.addAction(subOkAction)
-                    self.present(subDialog, animated: true, completion: nil)
                 } else {
+                    //self.showToast(message: "잘못된 코드입니다.")
                     // 초대 코드가 잘못되었거나 존재하지 않는 경우
-                    let subDialog = UIAlertController(title: nil, message: "잘못된 코드입니다.", preferredStyle: .alert)
-                    let subOkAction = UIAlertAction(title: "ok", style: .default, handler: nil)
-                    subDialog.addAction(subOkAction)
-                    self.present(subDialog, animated: true, completion: nil)
+                    //let subDialog = UIAlertController(title: nil, message: "잘못된 코드입니다.", preferredStyle: .alert)
+                    //let subOkAction = UIAlertAction(title: "ok", style: .default, handler: nil)
+                    //subDialog.addAction(subOkAction)
+                    //self.present(subDialog, animated: true, completion: nil)
+                    //self.ref.child("user/\(ShareCode)").child(user!.uid).setValue(["family": ShareCode])
+                    let post = [
+                        "family" : ShareCode
+                        
+                    ] as [String : Any]
+                    
+                    let childUpdates = [
+                        "user/\(user!.uid)/family/num1": post["family"],
+                    ]
+                    
+                    self.ref.updateChildValues(childUpdates)
                 }
                 
                 
             }
             
             print(ShareCode)
-            let subDialog = UIAlertController(title: nil, message: "ㅔ", preferredStyle: .alert)
-            let ll = UIAlertAction(title: "ok", style: .default, handler: nil)
-            subDialog.addAction(ll)
-            self.present(subDialog, animated: true, completion: nil)
+            //let subDialog = UIAlertController(title: nil, message: "ㅔ", preferredStyle: .alert)
+            //let ll = UIAlertAction(title: "ok", style: .default, handler: nil)
+            //subDialog.addAction(ll)
+            //self.present(subDialog, animated: true, completion: nil)
         }
         
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
@@ -104,6 +119,32 @@ class reportList : UITableViewController {
         dialog.addAction(okAction)
         dialog.addAction(cancelAction)
         
-        present(dialog, animated: true, completion: nil)
+        present(dialog, animated: true) {
+            self.showToast(message: "a")
+            print("ASD")
+        }
+    }
+    
+    
+    
+}
+extension reportList {
+    func showToast(message : String, font: UIFont = UIFont.systemFont(ofSize: 14.0)) {
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10
+        toastLabel.clipsToBounds = true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
     }
 }
