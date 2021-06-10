@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A32CA56B5B8703465B527715 /* Pods_Mediku.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938815063FD797C354614B30 /* Pods_Mediku.framework */; };
 		B109B3A22657B8800056AFC3 /* ProfileTextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B109B3A12657B8800056AFC3 /* ProfileTextController.swift */; };
+		B114D81926720CD5001280EA /* uid_parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B114D81826720CD5001280EA /* uid_parser.swift */; };
+		B114D81C26726BFA001280EA /* FamilyVerify.swift in Sources */ = {isa = PBXBuildFile; fileRef = B114D81B26726BFA001280EA /* FamilyVerify.swift */; };
 		B132177B26566E9C00D67DE5 /* testlaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = B132177A26566E9C00D67DE5 /* testlaunch.png */; };
 		B1321787265672B500D67DE5 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = B1321786265672B500D67DE5 /* profile.png */; };
 		B132178A2656731200D67DE5 /* homepage.png in Resources */ = {isa = PBXBuildFile; fileRef = B13217892656731200D67DE5 /* homepage.png */; };
@@ -201,6 +203,8 @@
 		4D8503329B866719A0C44F64 /* Pods-Mediku.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mediku.release.xcconfig"; path = "Target Support Files/Pods-Mediku/Pods-Mediku.release.xcconfig"; sourceTree = "<group>"; };
 		938815063FD797C354614B30 /* Pods_Mediku.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mediku.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B109B3A12657B8800056AFC3 /* ProfileTextController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextController.swift; sourceTree = "<group>"; };
+		B114D81826720CD5001280EA /* uid_parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uid_parser.swift; sourceTree = "<group>"; };
+		B114D81B26726BFA001280EA /* FamilyVerify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyVerify.swift; sourceTree = "<group>"; };
 		B132177A26566E9C00D67DE5 /* testlaunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testlaunch.png; sourceTree = "<group>"; };
 		B1321786265672B500D67DE5 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		B13217892656731200D67DE5 /* homepage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homepage.png; sourceTree = "<group>"; };
@@ -476,6 +480,8 @@
 				B1EDBB23266D159C0050A58A /* GoogleService-Info.plist */,
 				B1973E2C26514F7B003F0AED /* MyprofilePage.swift */,
 				B109B3A12657B8800056AFC3 /* ProfileTextController.swift */,
+				B114D81826720CD5001280EA /* uid_parser.swift */,
+				B114D81B26726BFA001280EA /* FamilyVerify.swift */,
 			);
 			path = Mediku;
 			sourceTree = "<group>";
@@ -1146,6 +1152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B114D81926720CD5001280EA /* uid_parser.swift in Sources */,
 				B1973E2D26514F7B003F0AED /* MyprofilePage.swift in Sources */,
 				B19D3C74264D1D83000932EF /* eventList.swift in Sources */,
 				B19D3C6F264D1D83000932EF /* DoctorList.swift in Sources */,
@@ -1165,6 +1172,7 @@
 				B19D3C72264D1D83000932EF /* MainPageView.swift in Sources */,
 				B19D3C68264D1D83000932EF /* JsonParser.swift in Sources */,
 				B19D3AD8264D19EB000932EF /* SceneDelegate.swift in Sources */,
+				B114D81C26726BFA001280EA /* FamilyVerify.swift in Sources */,
 				B19D3C6A264D1D83000932EF /* VerifyPage.swift in Sources */,
 				B19D3C6E264D1D83000932EF /* reportList.swift in Sources */,
 				B19D3C70264D1D83000932EF /* clausePage.swift in Sources */,

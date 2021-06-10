@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 import SafariServices
+import Firebase
 
 class MainPageView : UIViewController {
     
@@ -53,7 +54,6 @@ class MainPageView : UIViewController {
         //swipeRight.numberOfTouchesRequired = numOfTouchs
         self.view.addGestureRecognizer(swipeRight)
         
-        
     }
     
     @objc func touchToPickPhoto(_ gesture : UIGestureRecognizer) {
@@ -66,6 +66,26 @@ class MainPageView : UIViewController {
         print("ASD")
         
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        let user = Auth.auth().currentUser
+        ref.child("user/\(user!.uid)/family").getData { [self] (error, snapshot) in
+            if let error = error {
+                print("Error getting data \(error)")
+            }
+            else if snapshot.exists() {
+                print("Got data \(snapshot.value)")
+                appDelegate?.FamilyList = snapshot.value as! [String : Any]
+                print(appDelegate!.FamilyList)
+            }
+            else {
+                print("No data available")
+            }
+        }
     }
     
     @objc func respondToSwipeGesture(_ gesture : UIGestureRecognizer) {
@@ -101,6 +121,28 @@ class MainPageView : UIViewController {
     } // ~ViewDidLoad
     
     
+    @IBAction func FamilyAction(_ sender: Any) {
+        print("gbgb")
+        /*
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        let user = Auth.auth().currentUser
+        ref.child("user/\(user!.uid)/family").getData { (error, snapshot) in
+            if let error = error {
+                print("Error getting data \(error)")
+            }
+            else if snapshot.exists() {
+                print("Got data \(snapshot.value!)")
+            }
+            else {
+                print("No data available")
+            }
+        
+        }
+        */
+        
+    }
     
     @IBAction func pageChange(_ sender: UIPageControl) {
         imgView.image = UIImage(named: images[pageControl.currentPage]) // 페이지 컨트롤의 상세정보를 가져와서 이미지 뷰에 보여줌
@@ -257,6 +299,18 @@ extension MainPageView {
         present(dialog, animated: true, completion: nil)
     }
     
+    
+    
+}
+
+extension MainPageView {
+    // uid parser
+    
+    func uid_parser() {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+    }
     
     
 }

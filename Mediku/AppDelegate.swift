@@ -25,6 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var dict = [String:Any]() // 딕셔너리 선언 - 예약 페이지 보여주기 위해서
     
+    var FamilyList = [String:Any]() // 딕셔너리 선언 - 가족을 위한 배열
+    var TestFamilyList = ["CHkvY2pXuUZSvms6hkqHjb4E1dB2","KRdIUsCaCogVZShOR7tEJwKoAWz2","OuJJLJkDAWdK3waZYXkFHBRDQMH3"]
+    var TestRelationAttr = ["가족1","가족2","가족3"]
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()

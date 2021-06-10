@@ -83,7 +83,30 @@ extension loginPage {
                 appDelegate?.loginCheck = 1 // 로그인 상태로 변경
                 self.registerBtn.isHidden = true
                 self.loginLabel.isHidden = true
+                
+                
+                var ref: DatabaseReference!
+                ref = Database.database().reference()
+                
+                let user = Auth.auth().currentUser
+                ref.child("user/\(user!.uid)/family").getData { [self] (error, snapshot) in
+                    if let error = error {
+                        print("Error getting data \(error)")
+                    }
+                    else if snapshot.exists() {
+                        print("Got data \(snapshot.value)")
+                        appDelegate?.FamilyList = snapshot.value as! [String : Any]
+                        appDelegate?.FamilyList.description
+                        //print(appDelegate!.FamilyList)
+                    }
+                    else {
+                        print("No data available")
+                    }
+                }
+                  
+                
                 self.AlertLoginSuccess()
+            
             } else {
                 print("login fail")
                 self.AlertSignFail(error as! NSError)

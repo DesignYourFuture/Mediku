@@ -8,31 +8,48 @@
 import UIKit
 import Firebase
 
+class reportCell : UITableViewCell {
+    @IBOutlet weak var RelationAttr: UILabel!
+    @IBOutlet weak var userid: UILabel!
+}
+
 class reportList : UITableViewController {
     
-    var ref: DatabaseReference! // 파이어베이스 리얼타임 데베 읽기 위해서 참조해야해
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
+    let user = Auth.auth().currentUser
+    var ref: DatabaseReference! // 파이어베이스 리얼타임 데베 읽기 위해서 참조해야해
+    var howmanycount : Int = 0
     override func viewDidLoad() {
         print("ViewDid")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("ViewWill")
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        print(self.appDelegate?.TestRelationAttr.count)
+        return (self.appDelegate?.TestRelationAttr.count) as! Int
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reportCell")
-
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reportCell") as! reportCell
+        cell.RelationAttr.text = self.appDelegate?.TestRelationAttr[indexPath.row]
+        cell.userid.text = self.appDelegate?.TestFamilyList[indexPath.row]
+        
+        return cell
         
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 104
+        return 75
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
     }
     
     @IBAction func shareInfo(_ sender: Any) {
@@ -63,41 +80,30 @@ class reportList : UITableViewController {
     
     @IBAction func addInfo(_ sender: Any) {
         var ShareCode = "" // 초대 코드 입력
-        
+        var RelationText = "" // 관계지정
         let dialog = UIAlertController(title: nil, message: "가족을 등록하시겠습니까?", preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "확인", style: .default) { (_) in
             ShareCode = dialog.textFields?[0].text ?? ""
+            RelationText = dialog.textFields?[1].text ?? ""
             self.ref = Database.database().reference()
             
-            let user = Auth.auth().currentUser
-            
-            self.ref.child("user/\(ShareCode)").getData { (_: Error?, DataSnapshot) in
+            self.ref.child("user/\(ShareCode)").getData { [self] (_: Error?, DataSnapshot) in
                 // 데이터를 먼저 읽는다
                 if DataSnapshot.exists() == true {
                     // uid 가 존재 즉, 초대한 회원코드를 정확히 입력 or 존재
-                
-                    self.ref.child("user/\(ShareCode)").child(user!.uid).setValue(["family": ShareCode])
-                    
+                    self.ref.child("user/\(user!.uid)/family").updateChildValues([ShareCode: RelationText])
+                    //self.ref.child("user/\(ShareCode)/family").updateChildValues([self.user!.uid: self.user!.uid])
+                    appDelegate?.FamilyList.updateValue(RelationText, forKey: ShareCode)
+                    appDelegate?.TestFamilyList.append(ShareCode)
+                    appDelegate?.TestRelationAttr.append(RelationText)
+                    print(appDelegate?.FamilyList.description)
+                    DispatchQueue.main.async {
+                        tableView.reloadData() // 메인스레드에서 작업해줘야함 - 테이블 뷰 새로고침하는 코드
+                    }
                     
                 } else {
-                    //self.showToast(message: "잘못된 코드입니다.")
-                    // 초대 코드가 잘못되었거나 존재하지 않는 경우
-                    //let subDialog = UIAlertController(title: nil, message: "잘못된 코드입니다.", preferredStyle: .alert)
-                    //let subOkAction = UIAlertAction(title: "ok", style: .default, handler: nil)
-                    //subDialog.addAction(subOkAction)
-                    //self.present(subDialog, animated: true, completion: nil)
-                    //self.ref.child("user/\(ShareCode)").child(user!.uid).setValue(["family": ShareCode])
-                    let post = [
-                        "family" : ShareCode
-                        
-                    ] as [String : Any]
                     
-                    let childUpdates = [
-                        "user/\(user!.uid)/family/num1": post["family"],
-                    ]
-                    
-                    self.ref.updateChildValues(childUpdates)
                 }
                 
                 
@@ -116,6 +122,12 @@ class reportList : UITableViewController {
             tf.placeholder = "초대받은 코드를 입력해주세요."
             //ShareCode = dialog.textFields?[0].text ?? ""
         }
+        
+        dialog.addTextField { (tf) in
+            tf.placeholder = "관계를 입력해주세요"
+            //ShareCode = dialog.textFields?[0].text ?? ""
+        }
+        
         dialog.addAction(okAction)
         dialog.addAction(cancelAction)
         
@@ -146,5 +158,10 @@ extension reportList {
         }, completion: {(isCompleted) in
             toastLabel.removeFromSuperview()
         })
+    }
+    
+    
+    @IBAction func unwind3(_ segue : UIStoryboardSegue) { // unwind 세그웨이 프로그래밍적으로 구현 - 왜냐하면 바로 이전화면이 아니라 더더 이전화면을 건너가야하는 경우도 생기니까.
+        // 단지 프로필 화면으로 되돌아오기 위한 표식 역할만 할 뿐이므로 아무 내용도 작성하지 않는다
     }
 }
